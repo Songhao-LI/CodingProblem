@@ -6,9 +6,6 @@ def problem1(source, target):
     n = len(source_arr)
     m = len(target_arr)
     
-    print(source_arr)
-    print(target_arr)
-    
     while target_arr:
         for i in range(n):
             if source_arr[i] == target_arr[0]:
