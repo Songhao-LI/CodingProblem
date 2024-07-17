@@ -10,7 +10,7 @@ def problem3(n, arr):
             median = (sub[(sub_n // 2) - 1] + sub[sub_n // 2]) / 2
         return mean - median
 
-    def handle_subsequences(index, current_subsequence):
+    def dfs(index, current_subsequence):
         if index == n:
             if current_subsequence:
                 val = get_weight(current_subsequence)
@@ -18,12 +18,12 @@ def problem3(n, arr):
                 if val > max_val:
                     max_val = val
             return
-        handle_subsequences(index + 1, current_subsequence + [arr[index]])
-        handle_subsequences(index + 1, current_subsequence)
+        dfs(index + 1, current_subsequence + [arr[index]])
+        dfs(index + 1, current_subsequence)
 
     max_val = float('-inf')
     arr.sort()
-    handle_subsequences(0, [])
+    dfs(0, [])
     return max_val
 
 
